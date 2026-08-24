@@ -1,0 +1,281 @@
+/* 1. Reseta margens e padroniza o box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container centralizado com largura ampla */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 2. HEADER - Logo e Menu alinhados na mesma linha horizontal */
+.header {
+    background-color: rgb(252, 101, 0);
+    color: beige;
+    border-bottom: 5px solid #ff8800;
+    padding: 20px 0;
+}
+
+.header-container {
+    display: flex; /* Ativa alinhamento em linha */
+    justify-content: space-between; /* Espaça marca e menu */
+    align-items: center;
+    gap: 20px;
+}
+
+/* Menu de navegação horizontal (em uma linha) */
+.nav ul {
+    display: flex; /* Coloca os links do menu lado a lado */
+    list-style: none;
+    gap: 20px;
+}
+
+.nav a {
+    color: beige;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+.nav a:hover {
+    opacity: 0.8;
+}
+
+/* 3. LAYOUT PRINCIPAL - Conteúdo e Sidebar dispostos lado a lado */
+.layout-grid {
+    display: flex; /* Deixa o Main e a Sidebar na mesma linha */
+    gap: 30px;
+    margin: 30px auto;
+    align-items: flex-start;
+}
+
+/* Conteúdo principal ocupa a maior parte da linha */
+.main-content {
+    flex: 3;
+}
+
+/* Sidebar ocupa a lateral */
+.sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 4. CARDS DOS POSTS - Imagem e texto lado a lado */
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex; /* Coloca a imagem ao lado do texto */
+    gap: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.post-image {
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.post-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.category-badge {
+    display: inline-block;
+    background-color: #fff0e6;
+    color: #f16d00;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+    align-self: flex-start;
+    margin-bottom: 6px;
+}
+
+.post-content h2 {
+    font-size: 1.25rem;
+    color: #222;
+}
+
+.post-author {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.post-text {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+/* Ações do post (Botão e link na mesma linha) */
+.post-actions {
+    display: flex; /* Alinha o botão de curtida e o link "Ler mais" */
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 5. BOTÃO DE CURTIR E ANIMAÇÃO */
+.like-btn {
+    background-color: #ffffff;
+    border: 2px solid #f16d00;
+    border-radius: 20px;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #f16d00;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s;
+}
+
+.like-btn:hover {
+    background-color: #fff0e6;
+}
+
+/* Animação acionada pelo JS */
+.like-btn.animar {
+    animation: puloCurtida 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes puloCurtida {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.35) rotate(-8deg); }
+    100% { transform: scale(1); }
+}
+
+.read-more {
+    color: #f16d00;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* 6. SIDEBAR WIDGETS */
+.widget {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.widget h3 {
+    color: #f16d00;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #fff0e6;
+    padding-bottom: 4px;
+}
+
+.search-form {
+    display: flex; /* Campo de busca e botão na mesma linha */
+    gap: 8px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-form button {
+    background-color: #f16d00;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.categories-widget ul {
+    list-style: none;
+}
+
+.categories-widget li {
+    margin-bottom: 6px;
+}
+
+.categories-widget a {
+    color: #444;
+    text-decoration: none;
+}
+
+.categories-widget a:hover {
+    color: #f16d00;
+}
+
+/* 7. FOOTER - Alinhado em linha horizontal */
+.footer {
+    background-color: rgb(230, 114, 5);
+    color: beige;
+    border-top: 5px solid #e87c17;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex; /* Alinha o texto e os links na mesma linha */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: beige;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Responsividade: para telas menores de celular */
+@media (max-width: 768px) {
+    .header-container,
+    .layout-grid,
+    .post-card,
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .post-image {
+        width: 100%;
+        height: 160px;
+    }
+}
